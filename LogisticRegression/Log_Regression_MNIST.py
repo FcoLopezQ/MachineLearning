@@ -101,7 +101,7 @@ def gradient_descent(w, b, X, Y):
     m = X.shape[1]
     # Forward Propagation
     A = sigmoid(np.dot(w.T,X) + b)                            
-    cost = (-1./m)*np.sum((-Y*np.log(A)) + ((1.-Y)*np.log(1.-A))) 
+    cost = (1./m)*np.sum((-Y*np.log(A)) - ((1.-Y)*np.log(1.-A)))
     # Backward Progagation
     dw = (1./m)*np.dot(X,(A-Y.T).T)
     db = (1./m)*np.sum(A-Y.T)
